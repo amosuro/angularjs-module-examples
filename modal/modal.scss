@@ -1,0 +1,43 @@
+@import '../styles/colors_typography/layout_colors';
+@import '../styles/variables/gutter-variables';
+@import '../styles/variables/zindex';
+
+$modal-width: 600px;
+
+.modal__overlay {
+  background-color: $dark-overlay;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  z-index: index($depth, dialog);
+}
+
+.modal {
+  background-color: $content-background-color;
+  position: relative;
+  width: $modal-width;
+  margin: 0 auto;
+}
+
+.modal__cancel {
+  background: none;
+  border: none;
+  color: $content-text-color-weaker;
+  position: absolute;
+  top: $gutter-vertical/2;
+  right: $gutter-horizontal/2;
+}
+
+.modal__content-wrapper {
+  min-height: 60px;
+  padding: $gutter-vertical-big $gutter-horizontal;
+}
+
+.modal__options {
+  margin:$gutter-vertical-small $gutter-horizontal-small ;
+}

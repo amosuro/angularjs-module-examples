@@ -1,0 +1,49 @@
+@import '../styles/colors_typography/layout_colors';
+@import '../styles/atoms/layout';
+
+// Context menu
+// 
+// Menu that uses the default dark overlay background and light text on it. Usually positioned absolutetly by the methods of the directive. Left white border increase indicates the hover state.
+// 
+// markup:
+// <div style="position:relative; height:200px">
+//  <ul class="context-menu" style="left:0; top:0; position: absolute;">
+//      <li class="context-menu__item">Element 1</li>
+//      <li class="context-menu__item">Element 2</li>
+//      <li class="context-menu__item">Element 3</li>
+//      <li class="context-menu__item">Element 4</li>
+//  </ul>
+// </div>
+// 
+// Styleguide 3.3
+// 
+
+[context-menu] {
+    z-index: index($depth, contextMenu);
+}
+
+.context-menu {
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+
+    background-color: $dark-overlay;
+}
+
+.context-menu__item {
+    margin: 1px 0;
+    padding: 5px 10px;
+
+    cursor: pointer;
+
+    color: $dark-overlay-text;
+    border-left: 3px solid $dark-overlay-text;
+    &:hover {
+        margin-right: -5px;
+
+        transition: all 0.1s ease-in;
+
+        border-width: 8px;
+    }
+}

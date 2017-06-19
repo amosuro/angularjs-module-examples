@@ -1,0 +1,38 @@
+<form name="inlineEdit.inlineEditForm" data-inline-content>
+    <span class="typehead--inline">
+        <input class="typehead__query inline" type="text" data-inline-input
+               ng-model="inlineEdit.InlineEditTypehead.editedData.description.value"
+               ng-disabled="inlineEdit.InlineEditTypehead.programmeSearchResults.length || inlineEdit.InlineEditTypehead.loadingMatchingProgrammes || inlineEdit.InlineEditTypehead.editedData.description.disabled"
+               ng-keyup="inlineEdit.InlineEditTypehead.categoryDisabled = false"
+                />
+        <button class="btn btn--reload typehead__button fa fa-search btn--tiny"
+                type="button"
+                ng-disabled="!inlineEdit.InlineEditTypehead.editedData.description.value"
+                ng-click="inlineEdit.InlineEditTypehead.programmeSearch(inlineEdit.InlineEditTypehead.editedData.description.value)"
+                ng-if="!inlineEdit.InlineEditTypehead.programmeSearchResults.length && !inlineEdit.InlineEditTypehead.loadingMatchingProgrammes"
+                >
+        </button>
+        <button class="btn btn--reload typehead__button fa fa-close btn--tiny"
+                type="button"
+                ng-click="inlineEdit.InlineEditTypehead.programmeSearchResults.length = 0"
+                ng-if="inlineEdit.InlineEditTypehead.programmeSearchResults.length"
+                >
+        </button>
+        
+        <ul class="typehead__result-list"
+            ng-if="inlineEdit.InlineEditTypehead.programmeSearchResults.length">
+            <li class="typehead__result"
+                ng-repeat="programme in inlineEdit.InlineEditTypehead.programmeSearchResults"
+                ng-click="inlineEdit.InlineEditTypehead.changeProgrammeName(programme)"
+                title="{{programme.name}} - {{edit.formatCategory(programme.category)}}"
+                    >
+                {{programme.name}}
+                <small>({{programme.category}})</small>
+            </li>
+        </ul>
+         <ul class="typehead__result-list"
+             ng-if="inlineEdit.InlineEditTypehead.loadingMatchingProgrammes">
+             <li class="typehead__loading"><i class="fa fa-circle-o-notch fa-spin"></i> Loading data...</li>
+         </ul>
+    </span>
+</form>

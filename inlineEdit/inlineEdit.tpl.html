@@ -1,0 +1,13 @@
+<div ng-if="inlineEdit.currentlyEditing">
+    <div ng-if="inlineEdit.style === 'text'" ng-include="'utils/inlineEdit/inlineEditText.tpl.html'"></div>
+    <div ng-if="inlineEdit.style === 'time'" ng-include="'utils/inlineEdit/inlineEditTime.tpl.html'"></div>
+    <div ng-if="inlineEdit.style === 'radio'" ng-include="'utils/inlineEdit/inlineEditRadio.tpl.html'"></div>
+    <div ng-if="inlineEdit.style === 'typehead'" ng-include="'utils/inlineEdit/inlineEditTypehead.tpl.html'"></div>
+</div>
+
+<div ng-if="!inlineEdit.currentlyEditing" class="comparison-grid__model-title">
+    <span class="fa fa-link" ng-if="inlineEdit.type === 'description' && scenarioChunk.isShared"></span>
+    <span class="fa fa-lock" ng-if="inlineEdit.type === 'description' && scenarioChunk.isLocked"></span>
+
+    {{inlineEdit.viewModel}}
+</div>

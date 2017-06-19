@@ -1,0 +1,14 @@
+<ul 
+  ng-show="contextMenu.isVisible && contextMenu.menuOptions.length" 
+  class="context-menu" 
+  id="contextMenu">
+    <li ng-repeat="menuOption in contextMenu.menuOptions"
+        class="context-menu__item">
+        <span class="context-menu__action-item"
+            data-type="context-menu__item"
+            ng-click="contextMenu.executeAction(menuOption.action, $event)"
+            ng-bind="menuOption.label"
+
+        ></span>
+    </li>
+</ul>

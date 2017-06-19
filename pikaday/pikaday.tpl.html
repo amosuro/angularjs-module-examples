@@ -1,0 +1,17 @@
+<input
+    type="text"
+    name="{{inputName}}"
+    placeholder="{{inputPlaceholder}}"
+    class="input-field datepicker__input"
+    id="{{inputId}}"
+    ng-model="date" 
+    ng-change="pikaday.resetEndDate()"
+    ng-disabled="inputDisabled"
+    min-date="{{minDate}}" 
+    max-date="{{maxDate}}" />
+
+<span class="datepicker__controls" ng-if="withControls !== undefined">
+    <button class="datepicker__controls__btn btn btn--small" ng-click="pikaday.setDay()">Day</button>
+    <button class="datepicker__controls__btn btn btn--small" ng-click="pikaday.setWeekFromDate()">Week</button>
+    <button class="datepicker__controls__btn btn btn--small" ng-click="pikaday.setMonthFromDate()">Month</button>
+</span>

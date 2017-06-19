@@ -1,0 +1,34 @@
+<div ng-controller="ModalController as modal"
+     class="modal__overlay"
+     ng-show="modal.ModalService.isVisible"
+        >
+    <!--ng-show="modal.ModalService.isVisible"-->
+
+    <form novalidate 
+        id="modalForm"
+        name="modalForm" 
+        class="modal">
+        <button type="button"
+                ng-click="modal.ModalService.cancel();"
+                class="modal__cancel fa fa-close"></button>
+        <div class="modal__content-wrapper">
+            <div class="modal__content"
+                 ng-if="modal.ModalService.contentTemplate"
+                 ng-include="modal.ModalService.contentTemplate"></div>
+        </div>
+        <div class="modal__options options">
+            <button class="option btn option--positive"
+                    type="button"
+                    ng-click="modal.ModalService.options.positive.action();"
+                    >
+                {{modal.ModalService.options.positive.label}}
+            </button>
+            <button class="option btn option--negative"
+                    type="button"
+                    ng-click="modal.ModalService.options.negative.action();"
+                    >
+                {{modal.ModalService.options.negative.label}}
+            </button>
+        </div>
+    </form>
+</div>
